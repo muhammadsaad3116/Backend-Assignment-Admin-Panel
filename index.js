@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const serverless = require("serverless-http");
 require("dotenv").config();
 
 const productRoutes = require("./routes/product");
@@ -12,17 +13,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/uploads", express.static("uploads"));
-
 app.use("/products", productRoutes);
 
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("MongoDB Connected");
+const handler = serverless(app);
 
-        app.listen(process.env.PORT || 5000, () => {
-            console.log("Server is running");
+module.exports = async (req, res) => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        return handler(req, res);
+    } catch (error) {
+        return res.status(500).json({
+            error: true,
+            message: error.message
         });
-    })
-    .catch((error) => {
-        console.log("MongoDB Error:", error.message);
-    });
+    }
+};
