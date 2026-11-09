@@ -1,10 +1,91 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Backend API</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Backend API is running</h1>
+
+    <aside class="sidebar">
+        <h2>Shop Admin</h2>
+        <nav>
+            <a href="#" onclick="showSection('dashboard')">Dashboard</a>
+            <a href="#" onclick="showSection('addProduct')">Add Product</a>
+            <a href="#" onclick="showSection('productList')">Product List</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <header>
+            <h1>E-commerce Admin Panel</h1>
+        </header>
+
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="stats">
+    <div class="stat-card">
+        <h3>Total Products</h3>
+        <h1 id="totalProducts">0</h1>
+    </div>
+
+    
+    <div class="stat-card">
+        <h3>Total Stock</h3>
+        <h1 id="totalStock">0</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Total Categories</h3>
+        <h1 id="totalCategories">0</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Inventory Value</h3>
+        <h1 id="inventoryValue">Rs. 0</h1>
+    </div>
+</div>
+        </section>
+
+        <section id="addProduct" style="display:none">
+            <h2 id="formTitle">Add New Product</h2>
+
+            <form id="productForm">
+                <input type="text" id="name" placeholder="Product Name" required>
+                <textarea id="description" placeholder="Description"></textarea>
+                <input type="number" id="price" placeholder="Price" required>
+                <input type="text" id="category" placeholder="Category">
+                <input type="number" id="stock" placeholder="Stock">
+                <label>Product Image</label>
+                <input type="file" id="image" accept="image/*">
+
+                <button type="submit">Save Product</button>
+            </form>
+        </section>
+
+        <section id="productList" style="display:none">
+            <h2>All Products</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>

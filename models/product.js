@@ -12,16 +12,16 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    image: {
-        type: String
-    },
     category: {
         type: String
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    stock: {
+        type: Number,
+        default: 0
+    },
+    image: {
+        type: String
     }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model("Product", productSchema);

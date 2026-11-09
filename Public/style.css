@@ -1,0 +1,170 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    background: #f4f6f9;
+    color: #333;
+}
+
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #172033;
+    color: white;
+    padding: 25px 15px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.sidebar nav a:hover {
+    background: #344563;
+}
+
+.main {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    padding: 30px;
+}
+
+header {
+    background: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 30px;
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #ddd;
+}
+
+.stat-card h1 {
+    margin-top: 15px;
+    color: #2563eb;
+}
+
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+input, textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.table-container {
+    overflow-x: auto;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #f1f5f9;
+}
+
+td img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+
+.stat-card {
+    padding: 15px;
+    min-width: 0;
+}
+
+.stat-card h1 {
+    margin-top: 15px;
+    color: #2563eb;
+    font-size: 28px;
+}
+
+.stats {
+    display: flex !important;
+    gap: 5px !important;
+    width: 100%;
+}
+
+.stat-card {
+    flex: 1 !important;
+    width: auto !important;
+    padding: 15px !important;
+    margin: 0 !important;
+}
